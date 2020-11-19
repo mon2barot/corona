@@ -51,14 +51,8 @@ view: vw_contact_tracing_covid19 {
 
   dimension: county {
     type: string
+    map_layer_name: us_counties_fips
     sql: ${TABLE}.COUNTY ;;
-    html:{% if value == "KENT" %}
-    <font color = "yellow">{{value}}</font>
-    {% elsif value == "MACOMB" %}
-    <font color = "blue">{{value}}</font>
-    {% else %}
-    <font color="green">{{value}}</font>
-    {% endif %};;
   }
 
   dimension: covid_inspector_id {
@@ -87,7 +81,8 @@ view: vw_contact_tracing_covid19 {
   }
 
   dimension: state {
-    type: string
+
+    map_layer_name: us_states
     sql: ${TABLE}.STATE ;;
   }
 

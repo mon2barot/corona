@@ -8,6 +8,11 @@ explore:corona  {
   view_name: vw_contact_tracing_covid19
 }
 
+explore:corona_contact  {
+  label: "Names"
+  view_name: contact_tracing_view
+}
+
 #include: "/views/*.view.lkml"                # include all views in the views/ folder in this project
 # include: "/**/view.lkml"                   # include all views in this project
 # include: "my_dashboard.dashboard.lookml"   # include a LookML dashboard called my_dashboard
