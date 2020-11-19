@@ -1,11 +1,16 @@
 view: vw_contact_tracing_covid19 {
-  sql_table_name: `coherentrxpoc.coherentrxpoc_DS.VW_CONTACT_TRACING_COVID19`
-    ;;
+  sql_table_name: `coherentrxpoc.coherentrxpoc_DS.VW_CONTACT_TRACING_COVID19`;;
+  label: "Patient, State & County"
 
   dimension: patient_id {
     primary_key: yes
     type: string
     sql: ${TABLE}.PATIENT_ID ;;
+    html:{% if vw_contact_tracing_covid19.is_contracted._value  == "Y" %}
+            <font color = "red">{{value}}</font>
+          {% else %}
+            <font color="green">{{value}}</font>
+            {% endif %};;
   }
 
   dimension: cont_patient_country {
@@ -47,6 +52,13 @@ view: vw_contact_tracing_covid19 {
   dimension: county {
     type: string
     sql: ${TABLE}.COUNTY ;;
+    html:{% if value == "KENT" %}
+    <font color = "yellow">{{value}}</font>
+    {% elsif value == "MACOMB" %}
+    <font color = "blue">{{value}}</font>
+    {% else %}
+    <font color="green">{{value}}</font>
+    {% endif %};;
   }
 
   dimension: covid_inspector_id {
@@ -79,8 +91,23 @@ view: vw_contact_tracing_covid19 {
     sql: ${TABLE}.STATE ;;
   }
 
-  measure: count {
-    type: count
-    drill_fields: [cont_patient_first_name, last_name, first_name, cont_patient_last_name, covid_inspector_name]
+  measure: total_patient_count {
+    label: "Total Patient Count"
+    type: count_distinct
+    sql: ${patient_id} ;;
   }
+
+  measure: percent_of_total_patient {
+    label: "Percentage of Patients"
+    type: percent_of_total
+    sql: ${total_patient_count} ;;
+  }
+
 }
+
+
+ # measure: total_patient_count{
+  #  label: "Total Patient Count"
+   # type: count
+    #drill_fields: [cont_patient_first_name, last_name, first_name, cont_patient_last_name, covid_inspector_name]
+  #}

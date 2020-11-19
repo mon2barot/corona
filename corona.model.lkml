@@ -1,8 +1,10 @@
 connection: "db-contact-tracing-covid19"
 
 include: "/views/**/vw_contact_tracing_covid19.view.lkml"
+include: "/views/**/contact_tracing_view.view.lkml"
 
 explore:corona  {
+  label: "Patient, State & County"
   view_name: vw_contact_tracing_covid19
 }
 
