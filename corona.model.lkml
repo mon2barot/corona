@@ -2,6 +2,7 @@ connection: "db-contact-tracing-covid19"
 
 include: "/views/**/vw_contact_tracing_covid19.view.lkml"
 include: "/views/**/contact_tracing_view.view.lkml"
+include: "/views/**/vw_covid_us.view.lkml"
 
 explore:corona  {
   label: "Patient, State & County"
@@ -13,7 +14,10 @@ explore:corona_contact  {
   view_name: contact_tracing_view
 }
 
-
+explore:corona_details  {
+  label: "Confirmed, Recovered, Deaths"
+  view_name: vw_covid_us
+}
 
 #include: "/views/*.view.lkml"                # include all views in the views/ folder in this project
 # include: "/**/view.lkml"                   # include all views in this project
