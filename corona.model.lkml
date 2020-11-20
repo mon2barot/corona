@@ -19,6 +19,10 @@ explore:corona_details  {
   view_name: vw_covid_us
 }
 
+named_value_format: thousands {
+  value_format: "0.000,\" K\""
+}
+
 #include: "/views/*.view.lkml"                # include all views in the views/ folder in this project
 # include: "/**/view.lkml"                   # include all views in this project
 # include: "my_dashboard.dashboard.lookml"   # include a LookML dashboard called my_dashboard
