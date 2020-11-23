@@ -66,7 +66,7 @@ view: vw_contact_tracing_covid19 {
         sql: ${TABLE}.COUNTY="Wayne" ;;
         label: "26163"
       }
-
+      else: "Null"
     }
   }
 
