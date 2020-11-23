@@ -50,7 +50,7 @@ view: vw_contact_tracing_covid19 {
   }
 
   dimension: county {
-  #type: string
+  type: string
   map_layer_name: us_counties_fips
   sql: ${TABLE}.COUNTY ;;
   #case: {
