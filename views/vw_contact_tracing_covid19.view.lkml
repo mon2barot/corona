@@ -50,7 +50,7 @@ view: vw_contact_tracing_covid19 {
   }
 
   dimension: county {
-    type: string
+    #type: string
     map_layer_name: us_counties_fips
     sql: ${TABLE}.COUNTY ;;
     case: {
@@ -70,16 +70,16 @@ view: vw_contact_tracing_covid19 {
     }
   }
 
-  dimension: county_fips {
-    label: "County Fips"
-    type:  string
-    map_layer_name: us_counties_fips
-    sql:
-    CASE WHEN ${vw_contact_tracing_covid19.county} = 'Kent' THEN ${vw_contact_tracing_covid19.county} = '26081'
-    WHEN ${vw_contact_tracing_covid19.county} = 'Macomb' THEN ${vw_contact_tracing_covid19.county} = '26099'
-    WHEN ${vw_contact_tracing_covid19.county} = 'Wayne' THEN ${vw_contact_tracing_covid19.county} = '26163'
-    ELSE null end;;
-  }
+  #dimension: county_fips {
+  #  label: "County Fips"
+  #  type:  string
+  #  map_layer_name: us_counties_fips
+  #  sql:
+   # CASE WHEN ${vw_contact_tracing_covid19.county} = 'Kent' THEN ${vw_contact_tracing_covid19.county} = '26081'
+   # WHEN ${vw_contact_tracing_covid19.county} = 'Macomb' THEN ${vw_contact_tracing_covid19.county} = '26099'
+   # WHEN ${vw_contact_tracing_covid19.county} = 'Wayne' THEN ${vw_contact_tracing_covid19.county} = '26163'
+   # ELSE null end;;
+  #}
 
 
 
@@ -125,7 +125,6 @@ view: vw_contact_tracing_covid19 {
     type: percent_of_total
     sql: ${total_patient_count} ;;
   }
-
 }
 
 
