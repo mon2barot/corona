@@ -109,15 +109,33 @@ view: vw_covid_us {
     sql: ${confirmed} ;;
   }
 
+  measure: confirmed_avg{
+    label: "Average Confirmed Cases"
+    type: average
+    sql: ${confirmed} ;;
+  }
+
   measure: recovered_count{
     label: "Total Recovered Cases"
     type: count_distinct
     sql: ${recovered} ;;
   }
 
+  measure: recovered_avg{
+    label: "Average Recovered Cases"
+    type: average
+    sql: ${recovered} ;;
+  }
+
   measure: death_count{
     label: "Total Deaths"
     type: count_distinct
+    sql: ${deaths} ;;
+  }
+
+  measure: death_avg{
+    label: "Average Deaths"
+    type: average
     sql: ${deaths} ;;
   }
 
