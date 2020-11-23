@@ -8,6 +8,12 @@ project_name: "corona"
 # }
 
 visualization: {
+  id: "treemap-corona"
+  label: "Treemap"
+  url: "https://looker-custom-viz-a.lookercdn.com/master/treemap.js"
+}
+
+visualization: {
   id: "subtotal-corona"
   label: "subtotal"
   url: "https://looker-custom-viz-a.lookercdn.com/master/subtotal.js"
