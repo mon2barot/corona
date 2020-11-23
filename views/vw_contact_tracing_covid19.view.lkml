@@ -55,15 +55,15 @@ view: vw_contact_tracing_covid19 {
     sql: ${TABLE}.COUNTY ;;
     case: {
       when: {
-        sql: ${TABLE}.county = "Kent" ;;
+        sql: ${TABLE}.COUNTY = "Kent" ;;
         label: "26081"
       }
       when: {
-        sql: ${TABLE}.county = "Macomb" ;;
+        sql: ${TABLE}.COUNTY = "Macomb" ;;
         label: "26099"
       }
       when: {
-        sql: ${TABLE}.county="Wayne" ;;
+        sql: ${TABLE}.COUNTY="Wayne" ;;
         label: "26163"
       }
       else: "etc."
