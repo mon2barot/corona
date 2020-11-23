@@ -49,13 +49,13 @@ view: vw_contact_tracing_covid19 {
     sql: ${TABLE}.COUNTRY ;;
   }
 
-  dimension: county {
+  #dimension: county {
     #type: string
-    map_layer_name: us_counties_fips
-    sql: ${TABLE}.COUNTY ;;
-  }
+   # map_layer_name: us_counties_fips
+    #sql: ${TABLE}.COUNTY ;;
+  #}
 
-  dimension: county_fips {
+  dimension: county {
    # type: string
   map_layer_name: us_counties_fips
   sql: ${TABLE}.COUNTY ;;
