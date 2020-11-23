@@ -55,6 +55,16 @@ view: vw_contact_tracing_covid19 {
     sql: ${TABLE}.COUNTY ;;
   }
 
+  dimension: county_fips {
+    label: "County Fips"
+    map_layer_name: us_counties_fips
+    sql:
+    CASE WHEN ${vw_contact_tracing_covid19.county} = 'Kent' THEN ${vw_contact_tracing_covid19.county} = '26081'
+    WHEN ${vw_contact_tracing_covid19.county} = 'Macomb' THEN ${vw_contact_tracing_covid19.county} = '26099'
+    WHEN ${vw_contact_tracing_covid19.county} = 'Wayne' THEN ${vw_contact_tracing_covid19.county} = '26163'
+    ELSE null end;;
+  }
+
   dimension: covid_inspector_id {
     type: string
     sql: ${TABLE}.COVID_INSPECTOR_ID ;;
