@@ -55,25 +55,27 @@ view: vw_contact_tracing_covid19 {
     sql: ${TABLE}.COUNTY ;;
   }
 
-  #dimension: county_fips {
+  dimension: county_fips {
    # type: string
-    #map_layer_name: us_counties_fips
-    #sql: ${TABLE}.COUNTY ;;
-    # when: {
-     #   sql: ${TABLE}.COUNTY = "Kent" ;;
-      #  label: "26081"
-      #}
-      #when: {
-        #sql: ${TABLE}.COUNTY = "Macomb" ;;
-        #label: "26099"
-      #}
-      #when: {
-       # sql: ${TABLE}.COUNTY="Wayne" ;;
-        #label: "26163"
-      #}
-      #else: "Null"
-    #}
-  #}
+  map_layer_name: us_counties_fips
+  sql: ${TABLE}.COUNTY ;;
+    case: {
+    when: {
+        sql: ${TABLE}.COUNTY = "Kent" ;;
+       label: "26081"
+     }
+     when: {
+     sql: ${TABLE}.COUNTY = "Macomb" ;;
+     label: "26099"
+     }
+     when: {
+      sql: ${TABLE}.COUNTY="Wayne" ;;
+     label: "26163"
+     }
+     else: "Null"
+    }
+  }
+
   #dimension: county_fips {
   #  label: "County Fips"
   #  type:  string
