@@ -15,6 +15,6 @@ visualization: {
 
 visualization: {
   id: "subtotal-corona"
-  label: "subtotal"
+  label: "Subtotal"
   url: "https://looker-custom-viz-a.lookercdn.com/master/subtotal.js"
 }
