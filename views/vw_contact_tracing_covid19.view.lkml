@@ -57,6 +57,7 @@ view: vw_contact_tracing_covid19 {
 
   dimension: county_fips {
     label: "County Fips"
+    type:  string
     map_layer_name: us_counties_fips
     sql:
     CASE WHEN ${vw_contact_tracing_covid19.county} = 'Kent' THEN ${vw_contact_tracing_covid19.county} = '26081'
