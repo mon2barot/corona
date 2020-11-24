@@ -77,6 +77,7 @@ view: vw_covid_us {
     #type: string
     sql: ${TABLE}.province_state ;;
     map_layer_name: us_states
+    html: <a href="https://www.google.com/">{{value}}</a> ;;
   }
 
   dimension: recovered {
